@@ -1,5 +1,4 @@
 ---
-
 apiVersion: v1
 kind: Pod
 metadata:
@@ -7,9 +6,9 @@ metadata:
 spec:
   containers:
   - name: kaniko
-    image: gcr.io/kaniko-project/executor:debug
-    args: ["--context=git://github.com/vfarcic/kaniko-demo",
-            "--destination=vfarcic/devops-toolkit:1.0.0"]
+    image: gcr.io/kaniko-project/executor:debug # using it in debug mode
+    args: ["--context=git://github.com/ezzat223/kaniko-demo", # context is where the source code lies
+            "--destination=ezzat22/devops-toolkit:1.0.0"] # where to push the image
     volumeMounts:
       - name: kaniko-secret
         mountPath: /kaniko/.docker
